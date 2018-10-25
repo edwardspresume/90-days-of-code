@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Conducting a quick test</h1>
+        <button id="display-date">Display Date</button>
+        <p id="todays-date"></p>
+
+        <svg width="1000" height="100">
+            <rect width="50" height="50" fill="green">
+                <animate attributeName="x" from="0" to="300" dur="3s" repeatCount="indefinite"></animate>
+            </rect>
+        </svg>
+
+        <div class="box-2"></div>
+    </div>
+
+    <script>
+        // DOM elements
+        const displayDate = document.getElementById('display-date');
+        const todaysDate = document.getElementById('todays-date');
+
+        // Display date when button clicked
+        displayDate.addEventListener('click', () => {
+            const date = new Date();
+            todaysDate.textContent = date;
+        })
+    </script>
+</body>
+
+</html>

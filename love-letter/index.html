@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+        body {
+            font-weight: 200;
+            font-family: 'Great Vibes', cursive;
+            background-color: #edeff0;
+        }
+
+        .container {
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Dear <span id="beloved"></span>,</p>
+
+        <p>Ever since the day I saw you I've always had an admiration. To have met someone so wonderful is beyond my
+            imagination. Inexplicably radiant. Your love is my aspiration.</p>
+
+        <p>Faithfully yours,</p>
+        <p id="user"></p>
+    </div>
+
+
+    <script>
+        // DOM elements
+        const beloved = document.getElementById('beloved');
+        const user = document.getElementById('user');
+
+        // Prompt user for info
+        const belovedName = prompt('What is the name of your beloved?')
+        const userName = prompt('What is your name?')
+
+        // Render info to elements
+        beloved.textContent = belovedName;
+        user.textContent = userName;
+    </script>
+</body>
+
+</html>

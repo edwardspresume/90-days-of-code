@@ -1,0 +1,29 @@
+.box-2 {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    animation: colors 5s infinite;
+    animation-fill-mode: backwards;
+}
+
+@keyframes colors {
+    0% {
+        background-color: blue;
+    }
+
+    25% {
+        background-color: rgb(6, 208, 235);
+    }
+
+    50% {
+        background-color: rgb(4, 252, 136);
+    }
+
+    75% {
+        background-color: rgb(188, 255, 5);
+    }
+
+    100% {
+        background-color: rgb(255, 208, 0);
+    }
+}
