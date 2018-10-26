@@ -1,0 +1,33 @@
+body {
+    background-color: #191919;
+}
+
+.container {
+    width: 40%;
+    color: #fff;
+    margin: 50px auto;
+    border-radius: 10px;
+    background-color: #000;
+}
+
+.content {
+    padding: 10px;
+    text-align: center;
+}
+
+h1 {
+    width: 100%;
+    color: #1fa0a2;
+}
+
+button {
+    border: 0;
+    padding: 7px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #0275D8;
+}
+
+button:hover {
+    cursor: pointer;
+}
