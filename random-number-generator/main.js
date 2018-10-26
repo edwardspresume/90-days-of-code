@@ -21,8 +21,8 @@ generate.addEventListener('click', () => {
 
 // Reset elements
 reset.addEventListener('click', () => {
-    minInput.value = ''
-    maxInput.value = ''
+    minInput.value = '';
+    maxInput.value = '';
     result.textContent = '';
     minInput.focus();
-})
+});
