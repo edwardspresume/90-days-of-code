@@ -1,25 +1,53 @@
 // DOM elements
-const taskInput = document.getElementById('task-input');
-const log = document.getElementById('log');
-const clear = document.getElementById('clear');
-const taskList = document.getElementById('task-list');
+const taskInput = document.getElementById("task-input");
+const log = document.getElementById("log");
+const clear = document.getElementById("clear");
+const taskList = document.getElementById("task-list");
 
-log.addEventListener('click', () => {
-    const task = document.createElement('li');
-    const del = document.createElement('span');
+// Log tasks
+log.addEventListener("click", () => {
+  // Only proceed is input element has a value
+  if (taskInput.value !== "") {
+    const task = document.createElement("li");
+    const del = document.createElement("span");
 
-    del.textContent = 'X';
+    del.textContent = "X";
+    del.className = "delete";
     task.textContent = taskInput.value;
 
     task.appendChild(del);
     taskList.appendChild(task);
 
-    taskInput.value = '';
+    taskInput.value = "";
     taskInput.focus();
+  } else {
+    alert("Please enter a task to continue");
+  }
 });
 
-clear.addEventListener('click', () => {
-    taskInput.value = '';
-    taskList.textContent = '';
-    taskInput.focus();
-})
+// Clear all tasks
+clear.addEventListener("click", () => {
+  taskInput.value = "";
+  taskList.textContent = "";
+  taskInput.focus();
+});
+
+taskList.addEventListener("click", event => {
+  const target = event.target;
+
+  if (target.nodeName === "LI") {
+    // Create an array for task items(li) and remove active class
+    let taskItems = [...taskList.children];
+    taskItems.forEach(task => {
+      task.classList.remove("active");
+    });
+
+    // Add background-color to selected task
+    target.classList.add("active");
+  }
+
+  // Remove a task
+  if (target.className === "delete") {
+    target.parentNode.parentNode.removeChild(target.parentNode);
+  }
+});

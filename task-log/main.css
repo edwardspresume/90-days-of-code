@@ -33,3 +33,31 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+ul {
+    text-align: left;
+    margin-top: 30px;
+}
+
+ul li {
+    display: grid;
+    margin-bottom: 10px;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul li:hover {
+    cursor: pointer;
+}
+
+.delete {
+    justify-self: end;
+}
+
+.delete:hover {
+    color: grey;
+    cursor: pointer;
+}
+
+.active {
+    background-color: yellow;
+}
