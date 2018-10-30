@@ -6,7 +6,7 @@ const taskList = document.getElementById("task-list");
 
 // Log tasks
 log.addEventListener("click", () => {
-  // Only proceed is input element has a value
+  // Only proceed if the user inputs a value
   if (taskInput.value !== "") {
     const task = document.createElement("li");
     const del = document.createElement("span");
