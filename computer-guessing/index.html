@@ -11,30 +11,54 @@
 <body>
 
     <div class="ui">
+        <h1>Computing guess</h1>
+        <p>Click generate to allow the computer to take a guess a number between one and 1000</p>
         <button id="generate">Generate</button>
         <button id="clear">Clear</button>
-        <p id="result"></p>
+
+        <!-- Look into the difference between pre-line and pre-wrap -->
+        <p id="result" style="white-space: pre-line"></p>
     </div>
 
     <script>
-        // Computer is going to get a number between one and one thousand
-
-        // capture how many attempts it took to get the number
         // DOM elements
         const generate = document.getElementById('generate');
         const clear = document.getElementById('clear');
         const result = document.getElementById('result');
 
         // Variables
-        let guess;
-        let limit = 10;
+        let limit = 1000;
         let attempt = 0;
+        let computerGuess;
+
+        // Generate a random number between 1 and the limit value
+        const generateRandomNumber = (x) => {
+            return Math.floor(Math.random() * limit + 1);
+        }
+
+        // Store the generated random number in a variable 
+        const randomNumber = generateRandomNumber(limit);
 
         generate.addEventListener('click', function () {
-            const randomNumber = (x) => {
-                return Math.floor(Math.random() * x + 1);
+
+            // Allow the computer to take another guess through our function and increase the attempt count while a discrepancy between the computerGuess and the generated randomNumber exist
+            while (computerGuess !== randomNumber) {
+                attempt++;
+                computerGuess = generateRandomNumber(limit);
             }
-        })
+
+            const text =
+                `The number was: ${randomNumber} 
+It took the computer: ${attempt} attempts to guess correctly.`;
+
+            // Output result
+            result.textContent = text;
+        });
+
+        // Refresh the page to guess again
+        clear.addEventListener('click', function () {
+            document.location.reload();
+        });
     </script>
 
 </body>
