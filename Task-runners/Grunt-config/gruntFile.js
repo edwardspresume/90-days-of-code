@@ -85,9 +85,7 @@ module.exports = function (grunt) {
                 tasks: ['concat'],
             }
         }
-
     });
-
 
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
