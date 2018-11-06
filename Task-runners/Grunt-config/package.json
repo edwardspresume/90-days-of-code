@@ -1,5 +1,5 @@
 {
-  "name": "gruntConfig",
+  "name": "grunt-config",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,13 +9,14 @@
   "keywords": [],
   "author": "Edwards Presume",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-imagemin": "^3.1.0",
     "grunt-contrib-uglify": "^4.0.0",
-    "grunt-sass": "^3.0.2"
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-sass": "^3.0.2",
+    "node-sass": "^4.10.0"
   }
 }
