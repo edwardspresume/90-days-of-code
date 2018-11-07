@@ -1,1 +1,1 @@
-console.log('Hello from gulp 222');
+console.log('Hello from gulp 2');
