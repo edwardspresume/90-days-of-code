@@ -7,43 +7,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-dark">
-    <div class="container bg-secondary rounded">
-        <div class="row">
-            <div class="col-md-5">
-                <h1 class="display-5 text-center mb-3">Weight Calculator</h1>
-                <form action="">
-                    <div class="form-group">
-                        <input type="number" class="form-control form-control-lg mb-2" placeholder="Enter Grams..." id="gramsInput">
-                    </div>
-                </form>
 
-                <div class="output">
-                    <div class="card bg-primary mb-2">
-                        <div class="card-body">
-                            <h4>Kilogram:</h4>
-                            <div id="kilogramOutput"></div>
-                        </div>
-                    </div>
+    <div class="container bg-secondary mt-5 p-2 rounded">
+        <h1 class="text-center mb-4">Weight Calculator</h1>
 
-                    <div class="card bg-info mb-2">
-                        <div class="card-body">
-                            <h4>Ounces:</h4>
-                            <div id="ounceOutput"></div>
-                        </div>
-                    </div>
-                    <div class="card bg-success mb-2">
-                        <div class="card-body">
-                            <h4>Pounds:</h4>
-                            <div id="poundOutput"></div>
-                        </div>
-                    </div>
+        <!-- Weight selection -->
+        <form action="">
+            <div class="form-group">
+                <select autofocus name="weight-options" id="weight-options" class="form-control form-control-lg">
+                    <option selected value="gram">Grams</option>
+                    <option value="ounces">Ounces</option>
+                    <option value="pounds">Pounds</option>
+                    <option value="kilogram">Kilograms</option>
+                </select>
+            </div>
+
+            <!-- Weight input -->
+            <div class="form-group">
+                <input type="number" class="form-control form-control-lg mb-2" placeholder="Enter Grams..." id="weight-input">
+            </div>
+        </form>
+
+        <!-- Weight outputs -->
+        <div id="output-div">
+
+            <!-- Kilogram output -->
+            <div class="card bg-primary mb-2">
+                <div class="card-body">
+                    <h4 id="outputName1">Ounces:</h4>
+                    <div id="outputValue1"></div>
                 </div>
             </div>
+
+            <!-- Ounces output -->
+            <div class="card bg-info mb-2">
+                <div class="card-body">
+                    <h4 id="outputName2">Pounds:</h4>
+                    <div id="outputValue2"></div>
+                </div>
+            </div>
+
+            <!-- Pounds output -->
+            <div class="card bg-success mb-2">
+                <div class="card-body">
+                    <h4 id="outputName3">Kilograms:</h4>
+                    <div id="outputValue3"></div>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
