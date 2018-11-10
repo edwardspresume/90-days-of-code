@@ -1,0 +1,43 @@
+body {
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    background: #f6f6f6;
+}
+
+table,
+thead {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.timer {
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+th {
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* background-color: #4CAF50; */
+    background-color: rgb(93, 207, 97);
+}
+
+.title,
+.dynamic td {
+    font-size: 3em;
+}
+
+tbody tr:first-child td {
+    padding-top: 10px;
+}
+
+tbody tr:not(:first-child) td {
+    padding-bottom: 10px;
+}
+
+.static td {
+    font-size: .9em;
+}
