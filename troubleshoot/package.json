@@ -1,0 +1,17 @@
+{
+  "name": "troubleshoot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -w scss -o css"
+  },
+  "keywords": [],
+  "author": "Edwards Presume",
+  "license": "MIT",
+  "dependencies": {
+    "brain.js": "^1.2.8",
+    "node-sass": "^4.9.3"
+  }
+}
