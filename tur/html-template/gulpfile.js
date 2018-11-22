@@ -50,7 +50,7 @@ gulp.task('server', ['copyHtml', 'sass', 'cssmin', 'jsmin', 'imagemin'], functio
     });
 
     gulp.watch('src/*.html', ['copyHtml']);
-    gulp.watch('src/scss/*.scss', ['sass']);
+    gulp.watch('src/scss/**/*.scss', ['sass']);
     gulp.watch('src/css/*.css', ['cssmin']);
     gulp.watch('src/js/*.js', ['jsmin']);
     gulp.watch('src/img/*', ['imagemin']);

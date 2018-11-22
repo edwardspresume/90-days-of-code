@@ -4,5 +4,24 @@
                                  Version: 0.0.1
    ========================================================================== */
 /* BASE - Base styles, variables, mixins, ect */
+/* Font Colors */
+/* Background Colors */
+body {
+  line-height: 1.7em;
+  color: #666;
+  font-size: 0.9em; }
+
+a {
+  color: #00aff0; }
+
+ul,
+li {
+  list-style: none; }
+
 /* MODULES - Individual site components */
 /* LAYOUTS - Page layout styles */
+.navbar a {
+  color: #00aff0 !important; }
+
+.navbar li a {
+  font-size: 1.1em; }
