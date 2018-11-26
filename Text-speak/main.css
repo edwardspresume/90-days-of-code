@@ -1,0 +1,27 @@
+/* 
+
+
+.icon {
+    margin-bottom: 30px;
+}
+
+#textInput,
+#voiceSelection,
+#send {
+    width: 100%;
+    border-radius: 5px;
+} */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #111 !important;
+}
+
+.container {
+    width: 80%;
+    margin: 30px auto;
+    padding: 0 20px 20px 20px;
+    text-align: center;
+    box-shadow: 1px 15px 10px 10px rgba(0, 0, 0, 0.5);
+}
