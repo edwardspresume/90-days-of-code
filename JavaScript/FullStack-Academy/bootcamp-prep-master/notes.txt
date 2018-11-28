@@ -1,0 +1,8 @@
+Modules % :: divides two numbers and returns the remainder
+
+cd 03* :: the star(*) allows us to navigate to the folder with the closest specified name.
+
+mouse = 5
+monitor = 6
+
+cloud = 4
