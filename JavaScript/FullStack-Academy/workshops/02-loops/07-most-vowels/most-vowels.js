@@ -1,38 +1,58 @@
 // YOUR CODE BELOW
-const mostVowels = (text) => {
+const mostVowels = text => {
 
-    const lowerCaseText = text.toLowerCase();
-    const wordArray = lowerCaseText.split(' ');
-    let mostVowelWord = '';
-    let currentWord = '';
-    let currentVowelCount = 0;
+    const wordArray = text.replace(/[,.]/g, '').split(" ");
 
+    let mostVowelWord = "";
+    let currentWord = "";
+    let vowelCount = 0;
+    console.log(wordArray);
 
-    for (words of wordArray) {
+    for (word of wordArray) {
+        currentWord = word.match(/[aeiou]/gi);
 
+        if (currentWord !== null) {
+            if (currentWord.length > vowelCount) {
 
-        if (words.includes('a', 'e', 'i', 'o', 'u', 'y')) {
-
-            // console.log(words);
+                vowelCount = currentWord.length;
+                mostVowelWord = word;
+            }
         }
     }
+    return mostVowelWord;
+};
 
-    // if (lowerCaseText.includes('a', 'e', 'i', 'o', 'u', 'y')) {
-
-    //     for (let i = 0; i < lowerCaseText.length; i++) {
-
-    //         if (lowerCaseText[i] !== ' ' && i < lowerCaseText.length - 1) {
-    //             currentWord += lowerCaseText[i];
-    //         }
-    //     }
-
-    //     return currentWord;
-    // }
-
-    // return currentWord;
-}
+console.log(mostVowels("Give her hell from us, Peeves."));
 
 
-mostVowels('I am a keeper with some real rhythms');
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
 
-// console.log(mostVowels('I am a keeper with some real rhythms'));
+
+// const mostVowels = (text) => {
+//     debugger;
+
+//     let wordArray = text.replace(/[,.]/g, '').split(' ');
+//     const VOWELS = 'aeiouAEIOU';
+//     let maxVowelCount = 0;
+//     let maxVowelWord = '';
+
+//     for (word of wordArray) {
+
+//         let currentVowelCount = 0;
+
+//         for (char of word) {
+
+// Or VOWELS.includes(char);
+//             if (VOWELS.indexOf(char) !== -1) currentVowelCount++;
+//         }
+
+//         if (currentVowelCount > maxVowelCount) {
+//             maxVowelCount = currentVowelCount;
+//             maxVowelWord = word;
+//         }
+//     }
+
+//     return maxVowelWord;
+// }
