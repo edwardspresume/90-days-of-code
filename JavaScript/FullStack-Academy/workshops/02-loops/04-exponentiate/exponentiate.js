@@ -5,14 +5,12 @@ const exponentiate = (base, power) => {
 
         let result = 1;
 
-        if (power === 0) return 1;
-        debugger;
-        for (let i = 0; i < power; i++) result *= base;
+        for (let i = 1; i <= power; i++) result *= base;
 
         return result;
 
     } else return `Your arguments need to be numbers`;
 }
 
-
-console.log(exponentiate(3, 4));
+// const exponentiate = (base, power) => base ** power;
+console.log(exponentiate(2, 2));

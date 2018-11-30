@@ -1,28 +1,23 @@
-// YOUR CODE BELOW
-const mySlice = (originalString, startIdx, endIdx) => {
+const mySlice = (originalString, startIdx = 0, endIdx = originalString.length) => {
 
     if (typeof originalString === 'string') {
 
         let newString = '';
+        // let startPos = 0;
+        // let endPos = originalString.length;
 
-        if (startIdx && typeof startIdx === 'number') {
+        // if (typeof startIdx === 'number') startPos = startIdx;
+        // if (typeof endIdx === 'number') endPos = endIdx;
 
-            for (startIdx; startIdx < originalString.length; startIdx++) {
-                newString += originalString[startIdx];
-            }
+        for (let i = startIdx; i < endIdx; i++) {
+            let currentChar = originalString[i];
+            newString += currentChar;
+        }
 
-            return newString;
-
-        } else return originalString;
-
-
+        return newString;
     } else return 'Error: originalString needs to be a string';
 }
 
-console.log(mySlice('edwards', 3));
 
 
-
-// if (startIdx && typeof startIdx === 'number' && endIdx && typeof endIdx === 'number') {
-
-// } else return `Error: Please check that your passing in the proper variable type`
+console.log(mySlice('Edwards'));

@@ -1,19 +1,18 @@
 // YOUR CODE BELOW
 console.log('\x1Bc'); //Clear console
 
-
 const onlyOdds = (num) => {
-    let total = 0;
-    if (num < 1) return 0;
 
-    for (let i = 0; i < num; i++) {
+    let sum = 0;
 
-        if (i % 2 === 0) continue;
+    for (let i = 1; i < num; i++) {
 
-        total += i;
+        if (i % 2 === 1) sum += i;
     }
 
-    return total;
+    return sum;
 }
+
+
 
 console.log(onlyOdds(6));
