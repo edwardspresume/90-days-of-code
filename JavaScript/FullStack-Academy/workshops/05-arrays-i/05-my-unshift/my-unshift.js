@@ -1,14 +1,21 @@
-function myUnshift(array, anyValue) {
+// function myUnshift(array, anyValue) {
 
-    let newArray = [];
-    newArray.push(anyValue)
+//     let newArray = [anyValue];
 
-    for (let i = 0; i < array.length; i++) {
+//     for (let i = 0; i < array.length; i++) {
 
-        newArray.push(array[i])
-    }
+//         let currentElm = array[i]
 
-    return newArray;
-}
+//         newArray.push(currentElm)
+//     }
+
+//     return newArray;
+// }
+
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
+
+const myUnshift = (array, elem) => [elem, ...array];
 
 myUnshift([1, 2, 3], 0)

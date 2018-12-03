@@ -1,10 +1,22 @@
 // YOUR CODE BELOW
+// const myReverse = (array) => {
+//     let reversedArray = [];
+
+//     for (let i = array.length - 1; i >= 0; i--) {
+//         reversedArray.push(array[i]);
+//     }
+
+//     return reversedArray;
+// }
+
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
+
 const myReverse = (array) => {
-    let newArray = [];
+    let reverseArray = [];
 
-    for (let i = array.length - 1; i >= 0; i--) {
-        newArray.push(array[i]);
-    }
+    while (array.length) reverseArray.push(array.pop());
 
-    return newArray;
+    return reverseArray;
 }

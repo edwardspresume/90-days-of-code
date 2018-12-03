@@ -29,8 +29,8 @@ const myIncludes = (array, search) => {
 
     let foundValue = false;
 
-    for (item of array) {
-        if (item === search) {
+    for (element of array) {
+        if (element === search) {
             foundValue = true;
 
         }

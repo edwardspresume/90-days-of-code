@@ -1,21 +1,12 @@
 // YOUR CODE BELOW
-const myLastIndexOf = (array, search, startIdx = 0) => {
-    debugger;
-    // store index of found item
-    let foundIdx = -1;
+const myLastIndexOf = (array, search, startIdx = array.length - 1) => {
 
-    for (let i = startIdx; i <= array.length; i++) {
+    for (let i = startIdx; i >= 0; i--) {
         let currentElm = array[i];
 
-
-        if (currentElm === search) {
-
-            foundIdx = i;
-
-        }
-
+        if (currentElm === search) return i;
     }
-    return foundIdx;
+    return -1;
 }
 
-myLastIndexOf([1, 2, 3, 3, 3], 3, 3)
+console.log(myLastIndexOf([1, 2, 3, 3, 3], 3, 3));

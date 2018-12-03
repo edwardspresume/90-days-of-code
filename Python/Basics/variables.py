@@ -6,6 +6,15 @@ myStr = 'hello'
 myInt = 3
 myFloat = 1.3
 
+# Multiple assignment
+num, name, age, status = (11, 'ed', 25, True)
+print(num, name, age, status)
+
+# corhesion
+num = str(num)
+age = float(age)
+age = int(age)
+
 # Array
 myList = [1, 2, 3, 'Hello']
 
