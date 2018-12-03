@@ -1,41 +1,41 @@
 // YOUR CODE BELOW
-console.log('\x1Bc'); //Clear console
+console.clear();
 
-function zooInventory(array) {
+// const zooInventory = (zoo) => {
+//     let sentences = [];
 
-    let flatArray = [];
-    debugger;
-    // Loop through the whole array to get all of it's elements
-    for (let i = 0; i < array.length; i++) {
+//     for (animal of zoo) {
 
-        let initialElm = array[i];
+//         let name = animal[0]
+//         let species = animal[1][0];
+//         let age = animal[1][1]
+
+//         let sentence = `${name} the ${species} is ${age}.`
+
+//         sentences.push(sentence)
+//     }
+
+//     return sentences;
+// }
 
 
-        // Check if any of the initial elements is an array
-        if (Array.isArray(initialElm)) {
 
-            // if any of the initial elements is an array; loop inside them
-            for (let j = 0; j < initialElm.length; j++) {
 
-                let innerElm = initialElm[j];
 
-                if (Array.isArray(innerElm)) {
+/* ==========================================================================
+                                 Alternative 1
+   ========================================================================== */
 
-                    for (let k = 0; k < innerElm.length; k++) {
+const zooInventory = (zoo) => {
+    let sentences = [];
 
-                        let innerMostElm = innerElm[k]
+    for (animal of zoo) {
+        const [name, [species, age]] = animal;
 
-                        flatArray.push(innerMostElm);
-
-                    }
-                } else flatArray.push(initialElm);
-            }
-
-        } else flatArray.push(initialElm);
-
+        sentences.push(`${name} the ${species} is ${age}.`)
     }
 
-    return flatArray;
+    return sentences;
 }
 
 
@@ -46,3 +46,51 @@ let myZoo = [
 ];
 
 console.log(zooInventory(myZoo));
+
+
+/* ==========================================================================
+                                 Alternative 2
+   ========================================================================== */
+
+// function zooInventory(zoo) {
+//     let sentences = [];
+
+//     for (let i = 0; i < zoo.length; i++) {
+//         sentences.push(`${zoo[i][0]} the ${zoo[i][1][0]} is ${zoo[i][1][1]}.`)
+//     }
+
+//     return sentences
+// }
+
+
+/* ==========================================================================
+                                 In Works
+   ========================================================================== */
+
+
+
+// const zooInventory = (multiDimensionalArray) => {
+//     let flattenArray = [];
+//     let sentence = '';
+//     for (baseElement of multiDimensionalArray) {
+
+//         if (Array.isArray(baseElement)) {
+
+//             for (innerElement of baseElement) {
+
+//                 if (Array.isArray(innerElement)) {
+
+
+//                 } else sentence = baseElement.join(' ').replace(',', ' ');
+
+//             }
+
+//         } else sentence = baseElement;
+
+//         flattenArray.push(sentence + '.');
+
+//     }
+
+
+//     return flattenArray;
+// }
