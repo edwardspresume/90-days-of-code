@@ -28,7 +28,6 @@ const whosASpecial = (arrayOfPets) => {
     arrayOfPets.forEach((pet, index) => {
 
         string += `${pet.name} the ${pet.species} is very special!`;
-        console.log(index);
 
         if (index < arrayOfPets.length - 1) string += ' ';
 
