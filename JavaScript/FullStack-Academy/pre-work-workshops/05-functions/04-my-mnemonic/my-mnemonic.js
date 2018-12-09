@@ -5,8 +5,8 @@ const myMnemonic = (...words) => {
 
     for (word of words) {
         let currentWord = word;
-        let currentChat = currentWord[0]
-        mnemonic += currentChat;
+        let currentChar = currentWord[0]
+        mnemonic += currentChar;
     }
 
     return mnemonic;
