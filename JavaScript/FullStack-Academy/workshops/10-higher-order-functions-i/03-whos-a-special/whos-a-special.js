@@ -5,7 +5,6 @@ console.clear();
    ========================================================================== */
 
 
-
 let specialPets = [{
     name: 'Sadie',
     species: 'cat'
@@ -35,5 +34,24 @@ const whosASpecial = (arrayOfPets) => {
 
     return string;
 }
+
+
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
+
+
+
+// function whosASpecial(specialPets) {
+//     let results = [];
+
+//     specialPets.forEach(pushStringOntoResults);
+
+//     function pushStringOntoResults(petObject) {
+//         results.push(`${petObject.name} the ${petObject.species} is very special!`);
+//     }
+
+//     return results.join(' ');
+// }
 
 console.log(whosASpecial(specialPets));

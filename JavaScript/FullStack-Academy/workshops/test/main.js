@@ -33,3 +33,8 @@ const buildGrid = (rowCount, colCount) => {
 }
 
 console.log(buildGrid(3, 3));
+
+
+
+
+function getGreet

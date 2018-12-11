@@ -4,9 +4,12 @@ console.clear();
 const functionLogger = (callback, num) => {
 
     console.log('Function starting');
+
+    const result = callback(num);
+
     console.log("Function complete");
 
-    return callback(num);
+    return result;
 }
 
 const squareNum = num => num * num;
