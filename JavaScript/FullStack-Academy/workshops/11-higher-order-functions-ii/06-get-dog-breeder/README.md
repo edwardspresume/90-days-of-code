@@ -10,10 +10,10 @@ values defined when dogBreeder was called.
 You can copy over the solution code from dogBreeder if you'd like.
 
 ```javascript
-let puppyFarm = getDogBreeder('Snoopy', 0);
-let rescueShelter = getDogBreeder('Odie', 3);
+let puppyFarm = getDogBreeder("Snoopy", 0);
+let rescueShelter = getDogBreeder("Odie", 3);
 
-puppyFarm('Olaf', 3); // => {name: 'Olaf', age: 3};
+puppyFarm("Olaf", 3); // => {name: 'Olaf', age: 3};
 puppyFarm(2); // => {name: 'Snoopy', age: 2}
 
 rescueShelter(); // => {'Odie', 3}

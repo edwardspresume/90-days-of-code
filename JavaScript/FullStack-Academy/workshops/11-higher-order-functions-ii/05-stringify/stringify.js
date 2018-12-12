@@ -4,6 +4,6 @@ console.clear();
 const stringify = (callback) => {
 
     return function () {
-        return callback().toString();
+        return callback().toString(); // or ` '${callback}' `
     }
 }
