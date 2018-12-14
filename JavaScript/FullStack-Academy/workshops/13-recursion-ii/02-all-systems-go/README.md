@@ -42,7 +42,7 @@ let systems = {
   environment: {
     cooling: true,
     heating: true,
-    lifeSupport: true
+    lifeSupport: false
   }
 };
 
