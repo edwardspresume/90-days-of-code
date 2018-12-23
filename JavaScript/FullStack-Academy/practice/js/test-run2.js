@@ -1,5 +1,27 @@
 console.clear();
 
+function isPrime(num) {
+
+    if (num < 1) return false;
+
+    if (num === 2) return true;
+
+    if (!Number.isInteger(num / 2)) {
+
+        if (!Number.isInteger(num / 3)) return true;
+    }
+
+    return false;
+}
+
+
+console.log(isPrime(99));
+
+/* ==========================================================================
+                        Look up info from a database
+   ========================================================================== */
+
+
 let data = [{
         firstName: "Edwards",
         lastName: "Elric",
@@ -31,9 +53,13 @@ const lookupInfo = (name, prop) => {
     return `${name} does not exist`;
 };
 
+
+
 /* ==========================================================================
                             Filtered and Squared list
    ========================================================================== */
+
+
 
 const numbers = [4, 5.6, -9.8, 3.14, 42, 6, 8.34 - 2];
 
@@ -90,7 +116,7 @@ const makeList = data => {
    ========================================================================== */
 
 const todo = [{
-        title: 'Get my sister a present',
+        title: 'Watch videos in folder',
         isDone: true
     },
     {
