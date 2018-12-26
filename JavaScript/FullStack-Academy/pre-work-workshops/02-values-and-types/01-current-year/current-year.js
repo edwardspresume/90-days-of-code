@@ -1,5 +1,6 @@
 // YOUR CODE BELOW
-
-const year = 201.8 * (10 / 5 + 8);
-
+console.clear();
+var year = 200 * 10 + 20 - 2;
 console.log(year);
+
+console.log('New log');

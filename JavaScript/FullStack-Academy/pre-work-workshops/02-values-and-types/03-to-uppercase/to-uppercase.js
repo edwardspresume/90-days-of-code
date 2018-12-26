@@ -1,2 +1,3 @@
-// YOUR CODE BELOW
-console.log('edwards'.toUpperCase());
+var text = 'hella'.toUpperCase()
+
+console.log(text)

@@ -1,2 +1,4 @@
 // YOUR CODE BELOW
-const favoriteActivity = 'coding';
+console.clear();
+var FavoriteActivity = 'Coding'
+console.log(FavoriteActivity);
