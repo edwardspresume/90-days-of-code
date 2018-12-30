@@ -6,33 +6,68 @@
 
 console.clear();
 
+
+
 const validParentheses = (parens) => {
 
-    // Get the middle of the string 
-    let middle = parens[Math.floor((parens.length - 1) / 2)];
+    while (parens.includes('()')) parens = parens.replace('()', '')
 
-    // If we have an even amount of open and closing parens the middle will be an opening paren if not return false
-    if (middle !== '(') return false;
+    if (parens === '') return true;
 
-    // Store the total amount of open parens
-    let openParenCount = 0;
-
-    // Store the total amount of close parens
-    let closeParenCount = 0;
-
-    // Loop through the string
-    for (let i = 0; i < parens.length; i++) {
-
-        let currentChar = parens[i];
-
-        // Count how many open and close parens there are
-        if (currentChar === '(') openParenCount++;
-        if (currentChar === ')') closeParenCount++;
-    }
-
-    // If we have the same amount of open and close paren return true else false
-    return openParenCount === closeParenCount
+    return false;
 }
+
+
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
+
+
+// const validParentheses = (parens) => {
+//     let length = parens.length / 2;
+
+//     for (let i = 0; i < length; i++) {
+//         parens = parens.replace('()', '');
+//     }
+
+//     return parens === '';
+// }
+
+
+/* ==========================================================================
+                                 Improper solution
+   ========================================================================== */
+
+
+// const validParentheses = (parens) => {
+
+//     // Get the middle of the string 
+//     let middle = parens[Math.floor((parens.length - 1) / 2)];
+
+//     // If we have an even amount of open and closing parens the middle will be an opening paren if not return false
+//     if (middle !== '(') return false;
+
+//     // Store the total amount of open parens
+//     let openParenCount = 0;
+
+//     // Store the total amount of close parens
+//     let closeParenCount = 0;
+
+//     // Loop through the string
+//     for (let i = 0; i < parens.length; i++) {
+
+//         let currentChar = parens[i];
+
+//         // Count how many open and close parens there are
+//         if (currentChar === '(') openParenCount++;
+//         if (currentChar === ')') closeParenCount++;
+//     }
+
+//     // If we have the same amount of open and close paren return true else false
+//     return openParenCount === closeParenCount
+// }
+
+
 
 
 /* ==========================================================================
@@ -63,13 +98,19 @@ const validParentheses = (parens) => {
 
 
 
-console.log('true? ', validParentheses("()"))
-// => returns true 
-console.log('false? ', validParentheses(")(()))"))
-// // => returns false 
-console.log('false? ', validParentheses("("))
-// // // => returns false 
-console.log('true? ', validParentheses("(())((()())())"))
-// // // // => returns true 
+/* ==========================================================================
+                                 Console log
+   ========================================================================== */
+
+// console.log('true? ', validParentheses("()"))
+// // => returns true 
+// console.log('false? ', validParentheses(")(()))"))
+// // // // => returns false 
+// console.log('false? ', validParentheses("("))
+// // // // // => returns false 
+// console.log('true? ', validParentheses("(())((()())())"))
+// // // // // // => returns true 
 console.log('false?', validParentheses(")("))
 console.log('false?', validParentheses('())(()'))
+
+console.log(validParentheses('(())()'));

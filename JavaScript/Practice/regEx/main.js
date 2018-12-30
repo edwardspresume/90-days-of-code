@@ -40,6 +40,8 @@ let regExPhoneNumber = /^[\d\-\s]+$/;
 
 let regExEmail = /\w+@\w+\.(net|com|org)/;
 
+let typeOfEngineer = /(Software|Hardware) engineer/i
+
 /* ==========================================================================
                                  Output
    ========================================================================== */
