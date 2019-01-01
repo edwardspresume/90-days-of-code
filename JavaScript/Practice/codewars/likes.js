@@ -14,16 +14,75 @@ console.clear();
                                  Logic
    ========================================================================== */
 
+// const likes = names => {
+//   return {
+//     0: "no one likes this",
+//     1: `${names[0]} likes this`,
+//     2: `${names[0]} and ${names[1]} like this`,
+//     3: `${names[0]}, ${names[1]} and ${names[2]} like this`,
+//     4: `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+//   }[Math.min(4, names.length)];
+// };
 
-const likes = (names) => {
+/* ==========================================================================
+                                 Alternative 
+   ========================================================================== */
 
-    let result = '';
+const likes = names => {
+  const [a, b, c] = names;
 
-    if (!names.length) result = "no one likes this";
+  switch (names.length) {
+    case 0:
+      return "no one likes this";
 
-    names.forEach(name => result += `${name} likes this`);
+    case 1:
+      return `${a} likes this`;
 
-    return result;
-}
+    case 2:
+      return `${a} and ${b} like this`;
 
+    case 3:
+      return `${a}, ${b} and ${c} like this`;
+
+    default:
+      return `${a}, ${b} and ${names.length - 2} others like this`;
+  }
+};
+
+/* ==========================================================================
+                                    Alternative 3
+      ========================================================================== */
+
+// const likes = names => {
+//   if (names.length === 0) return "no one likes this";
+
+//   if (names.length === 1) return `${names} likes this`;
+
+//   if (names.length === 2) return `${names[0]} and ${names[1]} like this`;
+
+//   if (names.length === 3)
+//     return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+
+//   return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
+// };
+
+console.log(
+  `----------------------------- Test 1 -----------------------------`
+);
+console.log(likes([]));
+console.log(
+  `----------------------------- Test 2 -----------------------------`
+);
+console.log(likes(["Peter"]));
+console.log(
+  `----------------------------- Test 3 -----------------------------`
+);
 console.log(likes(["Jacob", "Alex"]));
+console.log(
+  `----------------------------- Test 4 -----------------------------`
+);
+console.log(likes(["Max", "John", "Mark"]));
+console.log(
+  `----------------------------- Test 5 -----------------------------`
+);
+console.log(likes(["James", "Edwards", "Kevin", "Steve"]));
