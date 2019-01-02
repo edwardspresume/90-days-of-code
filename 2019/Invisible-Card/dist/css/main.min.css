@@ -1,0 +1,1 @@
+*{margin:0;padding:0}body{height:100vh;width:100vw;font-family:'Josefin Sans',sans-serif;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(images/bg.jpg) no-repeat center;display:grid;place-content:center}.card-wrapper{height:600px;width:450px;border:1px solid #fff}.card{display:none}

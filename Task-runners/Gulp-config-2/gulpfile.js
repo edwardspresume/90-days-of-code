@@ -10,12 +10,12 @@ const browserSync = require("browser-sync").create();
 gulp.task("message", () => console.log("Gulp is running..."));
 
 // Copy all html files
-gulp.task("copyHtml", function() {
+gulp.task("copyHtml", function () {
   return gulp.src("src/*.html").pipe(gulp.dest("dist"));
 });
 
 // Compile sass to css
-gulp.task("sass", function() {
+gulp.task("sass", function () {
   return gulp
     .src("src/scss/*.scss")
     .pipe(sass().on("error", sass.logError))
@@ -24,7 +24,7 @@ gulp.task("sass", function() {
 });
 
 // Concat minify css files
-gulp.task("cssmin", function() {
+gulp.task("cssmin", function () {
   return gulp
     .src("src/css/*.css")
     .pipe(concat("style.min.css"))
@@ -34,7 +34,7 @@ gulp.task("cssmin", function() {
 });
 
 // Concat and minify js files
-gulp.task("scripts", function() {
+gulp.task("scripts", function () {
   return gulp
     .src("src/js/*.js")
     .pipe(concat("main.min.js"))
@@ -44,7 +44,7 @@ gulp.task("scripts", function() {
 });
 
 // Optimize images
-gulp.task("imagemin", function() {
+gulp.task("imagemin", function () {
   return gulp
     .src("src/images/*")
     .pipe(imagemin())
@@ -56,7 +56,7 @@ gulp.task("imagemin", function() {
 gulp.task(
   "server",
   ["copyHtml", "sass", "cssmin", "scripts", "imagemin"],
-  function() {
+  function () {
     browserSync.init({
       server: "./dist"
     });
