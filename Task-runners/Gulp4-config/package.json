@@ -12,6 +12,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.3",
     "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
@@ -19,5 +20,10 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE 10"
+  ]
 }

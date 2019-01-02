@@ -10,6 +10,7 @@ const concat = require("gulp-concat");
 const htmlmin = require("gulp-htmlmin");
 const imagemin = require("gulp-imagemin");
 const cleanCSS = require("gulp-clean-css");
+const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require("browser-sync").create();
 
 /* ==========================================================================
@@ -60,6 +61,7 @@ const compileStyle = () => {
     return gulp
         .src(paths.styles.src)
         .pipe(sass().on("error", sass.logError))
+        .pipe(autoprefixer())
         .pipe(
             cleanCSS({
                 level: 2
