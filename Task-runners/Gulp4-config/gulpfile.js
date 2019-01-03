@@ -20,22 +20,23 @@ const browserSync = require("browser-sync").create();
 const paths = {
     html: {
         src: 'src/*.html',
-        dest: "dist"
+        dest: "build",
+        files: 'build/*.html'
     },
 
     styles: {
         src: "src/scss/**/*.scss",
-        dest: "dist/css"
+        dest: "build/css"
     },
 
     scripts: {
         src: "src/js/*.js",
-        dest: "dist/js"
+        dest: "build/js"
     },
 
     images: {
         src: "src/images/*",
-        dest: "dist/images"
+        dest: "build/images"
     }
 };
 
@@ -99,7 +100,7 @@ const compileImage = () => {
 function startServer() {
     browserSync.init({
         server: {
-            baseDir: './dist'
+            baseDir: './build'
         }
     });
 }
@@ -109,7 +110,7 @@ const watchFiles = () => {
     gulp.watch(paths.html.src, compileMarkup);
     gulp.watch(paths.styles.src, compileStyle);
     gulp.watch(paths.scripts.src, compileScript);
-    gulp.watch("dist/*.html").on("change", browserSync.reload);
+    gulp.watch(paths.html.files).on("change", browserSync.reload);
 };
 
 
