@@ -1,0 +1,4 @@
+@mixin input-border-bottom ($border-bottom) {
+    border: none;
+    border-bottom: $border-bottom;
+}

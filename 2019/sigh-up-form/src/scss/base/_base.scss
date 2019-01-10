@@ -1,5 +1,10 @@
+body {
+    box-sizing: border-box;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url(../img/bg1.jpeg) no-repeat center/cover;
+    // background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url(../img/bg1.jpeg) no-repeat center/cover;
+    background-color: $secondary-color;
 }

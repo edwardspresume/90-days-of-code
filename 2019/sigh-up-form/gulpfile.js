@@ -97,6 +97,7 @@ const compileMarkup = () => {
 const compileStyle = () => {
   return gulp
     .src(paths.styles.src)
+    .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(autoprefixer())
     .pipe(cleanCSS(options.cleanCSS))
