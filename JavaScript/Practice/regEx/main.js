@@ -42,10 +42,33 @@ let regExEmail = /\w+@\w+\.(net|com|org)/;
 
 let typeOfEngineer = /(Software|Hardware) engineer/i
 
+
+
+/* ==========================================================================
+                                 First/Last name switch
+   ========================================================================== */
+
+let firstThenLast = "Edwards Presume";
+
+// Capture groups using ()
+let getFirstAndLast = /(\w+) (\w+)/;
+
+let group = firstThenLast.match(getFirstAndLast);
+
+console.log(group[1]);
+
+console.log(group);
+
+let lastCommaFirst = firstThenLast.replace(getFirstAndLast, '$2, $1');
+
+console.log(lastCommaFirst);
+
+
+
+
+
 /* ==========================================================================
                                  Output
    ========================================================================== */
 
 // let test = number.match(regExPhoneNumber);
-
-console.log(file());
