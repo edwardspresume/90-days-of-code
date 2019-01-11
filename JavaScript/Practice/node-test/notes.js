@@ -1,18 +1,19 @@
-/* Core Modules : 
-// http: create a server, send requests
-// https: Create a SSL server
-// fs: create and read files
-// path: navigate through file system
-// os: operating system
+/* Core Modules:
+
+(http): create a server, send requests
+(https): Create a SSL server
+(fs): create and read files
+(path): navigate through file system
+(os): operating system
+
 */
 
-// require('./[module name]') to use are own local module
 const fs = require("fs");
 
 // Create a new file
 fs.writeFileSync("textFiles/hello.txt", "Hello from node js");
 
-// Creating a new file to store our list as content
+// Creating a new file to store our array as content
 const focus = ["Programming", "Reading", "Thinking", "Writing"];
 fs.writeFileSync("textFiles/Focus.txt", focus);
 
