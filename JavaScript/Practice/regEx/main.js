@@ -5,13 +5,16 @@ const file = require('./module');
                                  Data input
    ========================================================================== */
 
+
 let address = "244 North main, Spring valley, NY 10977";
 let number = "(845)-793-6333";
 let email = "testEmail@aol.com";
 
+
 /* ==========================================================================
                                  RegEx
    ========================================================================== */
+
 
 // The * means look for instances of i and i follow n number of s's
 let reg = /is*/g;
@@ -43,10 +46,10 @@ let regExEmail = /\w+@\w+\.(net|com|org)/;
 let typeOfEngineer = /(Software|Hardware) engineer/i
 
 
-
 /* ==========================================================================
                                  First/Last name switch
    ========================================================================== */
+
 
 let firstThenLast = "Edwards Presume";
 
@@ -55,20 +58,75 @@ let getFirstAndLast = /(\w+) (\w+)/;
 
 let group = firstThenLast.match(getFirstAndLast);
 
-console.log(group[1]);
-
-console.log(group);
-
 let lastCommaFirst = firstThenLast.replace(getFirstAndLast, '$2, $1');
 
-console.log(lastCommaFirst);
+// console.log(group[1]);
+
+// console.log(group);
+
+// console.log(lastCommaFirst);
 
 
+/* ==========================================================================
+                                 Date And Host
+   ========================================================================== */
+
+
+const cvs = `Date, Host
+02-04-2018, Steve
+05-15-2018, Edwards
+07-09-2018, Steve
+09-25-2018, Edwards`;
+
+const dateAndHost = /^([\d-]+), (\w+)$/
+
+const show = cvs
+   .split('\n')
+   .filter(line => line.match(dateAndHost))
+   .map(line => line.replace(dateAndHost, '$2 hosted the show on $1')).join('\n')
+
+// console.log(show);
+
+
+/* ----------------------------------------- Correct Host ----------------------------------------- */
+let inputOne = 'Edwards hosts RegEx101';
+let inputTwo = 'Kyle hosts nextJs';
+
+// (?:) states that were not capturing this group
+let extractChannelIfCorrectHost = /(?:Edwards?|Steve) hosts (.+)/i;
+let channel = inputOne.match(extractChannelIfCorrectHost)[1]
+
+
+// console.log(channel);
+
+
+/* ==========================================================================
+                     Replace site name and url link element
+   ========================================================================== */
+
+
+let site = '[Google] (https://www.google.com)';
+
+// (*?) states the asterisk quantifier should not be greedy and over reach unintended matches
+const siteNameAndUrl = /\[(.*?)] \((https?.*?)\)/
+
+const link = site.replace(siteNameAndUrl, `<a href ='$2'>$1</a>`)
+
+// console.log(link);
 
 
 
 /* ==========================================================================
-                                 Output
+                     Replace duplicated characters
    ========================================================================== */
 
-// let test = number.match(regExPhoneNumber);
+
+const string = 'abbccddeff';
+
+
+// (\1) states that we are to match the grouped item followed by a second occurrence of it.
+const duplicatedChar = /(\w+)\s?\1/g;
+
+let cleanString = string.replace(duplicatedChar, '');
+
+console.log(cleanString);
