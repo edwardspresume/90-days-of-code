@@ -1,6 +1,6 @@
 /* Core Modules:
 
-(http): create a server, send requests
+(http): create a server, handle request/response
 (https): Create a SSL server
 (fs): create and read files
 (path): navigate through file system
