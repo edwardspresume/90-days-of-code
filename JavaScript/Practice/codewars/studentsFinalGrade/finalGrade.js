@@ -2,7 +2,7 @@ console.clear();
 
 const finalGrade = (examGrade, completedProjects) => {
 
-    if (examGrade >= 90 || completedProjects > 10) return 100;
+    if (examGrade > 90 || completedProjects > 10) return 100;
     if (examGrade > 75 && completedProjects >= 5) return 90;
     if (examGrade > 50 && completedProjects >= 2) return 75;
 
@@ -11,7 +11,7 @@ const finalGrade = (examGrade, completedProjects) => {
 }
 
 console.log(finalGrade(100, 12));
-console.log(finalGrade(90, 0));
+console.log(finalGrade(99, 0));
 console.log(finalGrade(10, 15));
 
 console.log(finalGrade(85, 5));
