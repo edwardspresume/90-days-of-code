@@ -1,22 +1,28 @@
 {
-  "name": "parcel",
+  "name": "parcel-build",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir build"
   },
   "keywords": [],
   "author": "Edwards Presume <edwardspresume@aol.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "parcel-bundler": "^1.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3"
-  }
+    "autoprefixer": "^9.4.6",
+    "parcel-bundler": "^1.11.0",
+    "postcss-modules": "^1.4.1",
+    "sass": "^1.16.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "IE 10"
+  ]
 }
