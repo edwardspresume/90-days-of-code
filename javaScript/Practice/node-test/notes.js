@@ -38,3 +38,11 @@ fs.readFile("textFiles/text.txt", "utf8", (error, content) => {
     .filter(line => line.match(/line/i))
     .forEach(line => console.log(line));
 });
+
+/* 
+// A named request function for our server.
+- function requestListener(request, respond) {}
+- http.createServer(requestListener)
+
+- http.createServer((request, respond) => {}) // Anonymous function for the createServer method
+*/
