@@ -1,5 +1,6 @@
 /* Import */
 import fetchJsonp from "fetch-jsonp";
+import { isValidZip, showAlert } from "./assets/js/validate";
 
 /* Dom Elements */
 const petForm = document.querySelector("#pet-form");
@@ -17,6 +18,9 @@ function fetchAnimals(event) {
   const animal = document.querySelector("#animal").value;
   const zip = document.querySelector("#zip").value;
 
+  // Validate zip
+  if (!isValidZip(zip)) showAlert("Please Enter a valid zipCode", "danger");
+
   //   //   Fetch Pets
   fetchJsonp(
     `http://api.petfinder.com/pet.find?format=json&key=d1931c70bc8507cac846f7abc1e74081&animal=${animal}&location=${zip}&callback=callback`,
@@ -26,11 +30,6 @@ function fetchAnimals(event) {
     .then(data => showAnimals(data.petfinder.pets.pet))
     .catch(err => console.log(err));
 
-  //   JSONP callback
-  const callback = data => {
-    console.log(data);
-  };
-
   const showAnimals = pets => {
     const result = document.querySelector("#results");
 
@@ -38,8 +37,9 @@ function fetchAnimals(event) {
     result.textContent = "";
 
     pets.forEach(pet => {
-      console.log(pet);
+      console.log(pet.media.photos.photo[3].$t);
       const div = document.createElement("div");
+
       div.classList.add("card", "card-body", "mb-3");
 
       div.innerHTML = `
@@ -47,11 +47,17 @@ function fetchAnimals(event) {
         <div class='col-sm-6'>
             <h4>${pet.name.$t} ${pet.age.$t}</h4>
             <p class='text-secondary'>${pet.breeds.breed.$t}</p>
-            <p>${pet.contact.address1.$t} ${pet.contact.city.$t} ${
-        pet.contact.state.$t
-      } ${pet.contact.zip.$t}</p>
+            <p>${pet.contact.address1.$t ? pet.contact.address1.$t : ""} ${
+        pet.contact.city.$t
+      } ${pet.contact.state.$t} ${pet.contact.zip.$t}</p>
             <ul class='list-group'>
-                <li class='list-group-item'>Phone: ${pet.contact.phone.$t}</li>
+            ${
+              pet.contact.phone.$t
+                ? `<li class='list-group-item'>Phone: ${
+                    pet.contact.phone.$t
+                  }</li>`
+                : ""
+            }
                 ${
                   pet.contact.email.$t
                     ? `<li class='list-group-item'>Email: ${
@@ -59,11 +65,17 @@ function fetchAnimals(event) {
                       }`
                     : ""
                 }
-   
+
+                   <li class='list-group-item'>Shelter Id: ${
+                     pet.shelterId.$t
+                   }</li>
+            </ul>
         </div>
 
-        <div class='col-sm-6'>
-
+        <div class='col-sm-6 text-center'>
+          <img class="img-fluid rounded-circle mt-2" src="${
+            pet.media.photos.photo[3].$t
+          }">
         </div>
       </div>
       `;
@@ -72,7 +84,3 @@ function fetchAnimals(event) {
     });
   };
 }
-
-/* ==========================================================================
-                                 Render the animals
-   ========================================================================== */
