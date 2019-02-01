@@ -1,5 +1,6 @@
 console.clear();
 const puppeteer = require("puppeteer");
+const fs = require("fs-extra");
 
 (async function main() {
   try {
@@ -21,6 +22,8 @@ const puppeteer = require("puppeteer");
 
     const categories = await page.$$("#search-results-nav li"); // Select all the li categories of the search result
 
+    await fs.writeFile("Movies.csv", `Label,Stat\n`); // Create an csv for our results
+
     // Loop through all the categories
     for (category of categories) {
       // Get the label name of the category
@@ -30,6 +33,8 @@ const puppeteer = require("puppeteer");
       );
 
       const stat = await category.$eval(".nav-stat", stat => stat.innerText); // Get the number for the categories
+
+      await fs.appendFile("Movies.csv", `"${label}","${stat}" \n`);
     }
 
     const filmGrid = await page.$$(".film-grid li"); // Select all the li categories of the search result
