@@ -1,7 +1,0 @@
-# React #
-- npx create-react-app <project_name>
-npm i styled-components :: Allows us to create style components ex: const heading = styled.header = `color: red`;
-
-
-# Vue #
-- vue create <project_name>
