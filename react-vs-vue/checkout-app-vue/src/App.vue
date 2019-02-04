@@ -1,27 +1,40 @@
 <template>
   <div id="app">
     <div class="products-list">
-      <div class="products" v-for="(product,index) in products" :key="index">
-        <h2>{{product.name}}: ${{product.price}}</h2>
-        <button @click="addToCart(index);">Add to cart</button>
-      </div>
+      <Product
+        class="products"
+        v-for="(product,index) in products"
+        :key="index"
+        v-bind:product="product"
+        @addedToCart="handleCartAdd"
+        :showAddButton="true"
+      ></Product>
     </div>
 
     <hr>
     <p>Cart Items</p>
-    <p>Total price: ${{calculateTotalPrice()}}</p>
+    <p>Total price: ${{calculateTotalPrice ()}}</p>
     <!-- Cart GOes here -->
     <div class="cart-list">
-      <div class="products" v-for="(product,index) in cart" :key="index">
-        <h2>{{product.name}}: ${{product.price}}</h2>
-        <button @click="addToCart(index);">Add to cart</button>
-      </div>
+      <Product
+        class="products"
+        v-for="(product,index) in cart"
+        :key="index"
+        v-bind:product="product"
+        :showAddButton="false"
+      ></Product>
     </div>
   </div>
 </template>
 
 <script>
+import Product from "./components/Product";
+
 export default {
+  name: "App",
+  components: {
+    Product
+  },
   data() {
     return {
       products: [
@@ -35,6 +48,10 @@ export default {
   },
   methods: {
     addToCart(index) {
+      this.cart = this.cart.concat(this.products[index]);
+    },
+    handleCartAdd(name) {
+      const index = this.products.findIndex(product => product.name === name);
       this.cart = this.cart.concat(this.products[index]);
     },
     calculateTotalPrice() {
