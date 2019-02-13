@@ -21,7 +21,7 @@ const displayClock = () => {
 
   displayClock.textContent = time;
 
-  setInterval(animation, 1000);
+  setInterval(displayClock, 1000);
 };
 
 displayClock();
