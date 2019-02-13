@@ -1,66 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="ui">
-        <h1>Computing guess</h1>
-        <p>Click generate to allow the computer to take a guess a number between one and 1000</p>
-        <button id="generate">Generate</button>
-        <button id="clear">Clear</button>
+      <h1>Computing guess</h1>
+      <p>
+        Click generate to allow the computer to take a guess a number between
+        one and 1000
+      </p>
+      <button id="generate">Generate</button>
+      <button id="clear">Clear</button>
 
-        <!-- Look into the difference between pre-line and pre-wrap -->
-        <p id="result" style="white-space: pre-line"></p>
+      <!-- Look into the difference between pre-line and pre-wrap -->
+      <p id="result" style="white-space: pre-line"></p>
     </div>
 
     <script>
-        // DOM elements
-        const generate = document.getElementById('generate');
-        const clear = document.getElementById('clear');
-        const result = document.getElementById('result');
+      // DOM elements
+      const generate = document.getElementById("generate");
+      const clear = document.getElementById("clear");
+      const result = document.getElementById("result");
 
-        // Variables
-        let limit = 1000;
-        let attempt = 0;
-        let computerGuess;
+      // Variables
+      let attempt = 0;
+      let computerGuess;
+      const limit = 1000;
 
-        // Generate a random number between 1 and the limit value
-        const generateRandomNumber = (x) => {
-            return Math.floor(Math.random() * limit + 1);
+      // Generate a random number between 1 and the limit value
+      const generateRandomNumber = value =>
+        Math.floor(Math.random() * value + 1);
+
+      // Store the generated random number in a variable
+      const randomNumber = generateRandomNumber(limit);
+
+      generate.addEventListener("click", () => {
+        // Allow the computer to take another guess through our function and increase the attempt count while a discrepancy between the computerGuess and the generated randomNumber exist
+        while (computerGuess !== randomNumber) {
+          attempt++;
+          computerGuess = generateRandomNumber(limit);
         }
 
-        // Store the generated random number in a variable 
-        const randomNumber = generateRandomNumber(limit);
-
-        generate.addEventListener('click', function () {
-
-            // Allow the computer to take another guess through our function and increase the attempt count while a discrepancy between the computerGuess and the generated randomNumber exist
-            while (computerGuess !== randomNumber) {
-                attempt++;
-                computerGuess = generateRandomNumber(limit);
-            }
-
-            const text =
-                `The number was: ${randomNumber} 
+        const text = `The number was: ${randomNumber} 
 It took the computer: ${attempt} attempts to guess correctly.`;
 
-            // Output result
-            result.textContent = text;
-        });
+        // Output result
+        result.textContent = text;
+      });
 
-        // Refresh the page to guess again
-        clear.addEventListener('click', function () {
-            document.location.reload();
-        });
+      // Refresh the page to guess again
+      clear.addEventListener("click", () => document.location.reload());
     </script>
-
-</body>
-
+  </body>
 </html>
