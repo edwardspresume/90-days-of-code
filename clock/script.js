@@ -19,7 +19,7 @@ const displayClock = () => {
 
   const time = `${hour}:${minutes}:${seconds} ${session}`;
 
-  displayClock.textContent = time;
+  clockDisplay.textContent = time;
 
   setInterval(displayClock, 1000);
 };
