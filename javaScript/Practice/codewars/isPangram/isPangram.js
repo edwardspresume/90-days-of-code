@@ -24,4 +24,24 @@ const isPangram = sentence => {
   return alphabetLetters.join("").length === 0;
 };
 
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
+
+// const solution = sentence => {
+//   const string = sentence.toLowerCase();
+
+//   return (
+//     "abcdefghijklmnopqrstuvwxyz"
+//       .split("")
+//       .filter(letter => string.indexOf(letter) === -1).length === 0
+//   );
+// };
+
+/* ==========================================================================
+                                 Alternative
+   ========================================================================== */
+const solution = string =>
+  (string.match(/([a-z])(?!.*\1)/gi) || []).length === 26;
+
 console.log(isPangram("The quick brown fox jumps over the lazy ogg"));
