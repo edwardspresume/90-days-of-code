@@ -12,6 +12,6 @@
   "license": "MIT",
   "dependencies": {
     "brain.js": "^1.2.8",
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.11.0"
   }
 }
