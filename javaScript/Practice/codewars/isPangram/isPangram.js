@@ -1,20 +1,19 @@
 console.clear();
 
 const isPangram = sentence => {
-  // Generate alphabet
-  // for (let i = 97; i < 123; i++) alphabet += String.fromCharCode(i);
+
+  // for (let i = 97; i < 123; i++) alphabet += String.fromCharCode(i); // Generate alphabet
 
   // let arr = [...Array(26)]
   //   .map(_ => String.fromCharCode(i++), (i = 97))
   //   .join("");
 
-  // Store the alphabet as an array
-  let alphabetLetters = "abcdefghijklmnopqrstuvwxyz".split("");
+  let alphabetLetters = "abcdefghijklmnopqrstuvwxyz".split(""); // Store the alphabet as an array
 
   // loop through the alphabet array
   for (let i = 0; i < alphabetLetters.length; i++) {
-    // Store the current letter of the array
-    let letter = alphabetLetters[i];
+
+    let letter = alphabetLetters[i]; // Store the current letter of the array
 
     // If the given sentence contains a letter from the alphabet, remove the letter from the array;
     if (sentence.includes(letter)) delete alphabetLetters[i];

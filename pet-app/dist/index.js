@@ -230,10 +230,44 @@ var global = arguments[3];
 
   module.exports = fetchJsonp;
 });
+},{}],"assets/js/validate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.showAlert = exports.isValidZip = void 0;
+
+var isValidZip = function isValidZip(zip) {
+  return zip.match(/^\d{5}$/);
+};
+
+exports.isValidZip = isValidZip;
+
+var showAlert = function showAlert(message, className) {
+  /* DOM elements */
+  var container = document.querySelector(".container");
+  var form = document.querySelector("#pet-form"); // Create div
+
+  var div = document.createElement("div"); //   Add Classes
+
+  div.className = "alert alert-".concat(className); //   add Text
+
+  div.appendChild(document.createTextNode(message));
+  container.insertBefore(div, form); // Remove the alert div after 3s
+
+  setTimeout(function () {
+    return document.querySelector(".alert").remove();
+  }, 3000);
+};
+
+exports.showAlert = showAlert;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _fetchJsonp = _interopRequireDefault(require("fetch-jsonp"));
+
+var _validate = require("./assets/js/validate");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -252,7 +286,9 @@ function fetchAnimals(event) {
   event.preventDefault(); //   Get User Input
 
   var animal = document.querySelector("#animal").value;
-  var zip = document.querySelector("#zip").value; //   //   Fetch Pets
+  var zip = document.querySelector("#zip").value; // Validate zip
+
+  if (!(0, _validate.isValidZip)(zip)) (0, _validate.showAlert)("Please Enter a valid zipCode", "danger"); //   //   Fetch Pets
 
   (0, _fetchJsonp.default)("http://api.petfinder.com/pet.find?format=json&key=d1931c70bc8507cac846f7abc1e74081&animal=".concat(animal, "&location=").concat(zip, "&callback=callback"), {
     jsonpCallbackFunction: "callback"
@@ -262,29 +298,22 @@ function fetchAnimals(event) {
     return showAnimals(data.petfinder.pets.pet);
   }).catch(function (err) {
     return console.log(err);
-  }); //   JSONP callback
-
-  var callback = function callback(data) {
-    console.log(data);
-  };
+  });
 
   var showAnimals = function showAnimals(pets) {
     var result = document.querySelector("#results"); // Clear First
 
     result.textContent = "";
     pets.forEach(function (pet) {
-      console.log(pet);
+      console.log(pet.media.photos.photo[3].$t);
       var div = document.createElement("div");
       div.classList.add("card", "card-body", "mb-3");
-      div.innerHTML = "\n      <div class='row'>\n        <div class='col-sm-6'>\n            <h4>".concat(pet.name.$t, " ").concat(pet.age.$t, "</h4>\n            <p class='text-secondary'>").concat(pet.breeds.breed.$t, "</p>\n            <p>").concat(pet.contact.address1.$t, " ").concat(pet.contact.city.$t, " ").concat(pet.contact.state.$t, " ").concat(pet.contact.zip.$t, "</p>\n            <ul class='list-group'>\n                <li class='list-group-item'>Phone: ").concat(pet.contact.phone.$t, "</li>\n                ").concat(pet.contact.email.$t ? "<li class='list-group-item'>Email: ".concat(pet.contact.email.$t) : "", "\n   \n        </div>\n\n        <div class='col-sm-6'>\n\n        </div>\n      </div>\n      ");
+      div.innerHTML = "\n      <div class='row'>\n        <div class='col-sm-6'>\n            <h4>".concat(pet.name.$t, " ").concat(pet.age.$t, "</h4>\n            <p class='text-secondary'>").concat(pet.breeds.breed.$t, "</p>\n            <p>").concat(pet.contact.address1.$t ? pet.contact.address1.$t : "", " ").concat(pet.contact.city.$t, " ").concat(pet.contact.state.$t, " ").concat(pet.contact.zip.$t, "</p>\n            <ul class='list-group'>\n            ").concat(pet.contact.phone.$t ? "<li class='list-group-item'>Phone: ".concat(pet.contact.phone.$t, "</li>") : "", "\n                ").concat(pet.contact.email.$t ? "<li class='list-group-item'>Email: ".concat(pet.contact.email.$t) : "", "\n\n                   <li class='list-group-item'>Shelter Id: ").concat(pet.shelterId.$t, "</li>\n            </ul>\n        </div>\n\n        <div class='col-sm-6 text-center'>\n          <img class=\"img-fluid rounded-circle mt-2\" src=\"").concat(pet.media.photos.photo[3].$t, "\">\n        </div>\n      </div>\n      ");
       result.appendChild(div);
     });
   };
 }
-/* ==========================================================================
-                                 Render the animals
-   ========================================================================== */
-},{"fetch-jsonp":"../node_modules/fetch-jsonp/build/fetch-jsonp.js"}],"../../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"fetch-jsonp":"../node_modules/fetch-jsonp/build/fetch-jsonp.js","./assets/js/validate":"assets/js/validate.js"}],"../../../../../../../../usr/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -311,7 +340,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39731" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46525" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

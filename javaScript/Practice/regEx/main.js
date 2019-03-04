@@ -45,6 +45,7 @@ let regExEmail = /\w+@\w+\.(net|com|org)/;
 
 let typeOfEngineer = /(Software|Hardware) engineer/i
 
+/([a-z])(?!.*\1)/gi // Only match a-z 
 
 /* ==========================================================================
                                  First/Last name switch

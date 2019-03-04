@@ -49,33 +49,33 @@ function fetchAnimals(event) {
             <p class='text-secondary'>${pet.breeds.breed.$t}</p>
             <p>${pet.contact.address1.$t ? pet.contact.address1.$t : ""} ${
         pet.contact.city.$t
-      } ${pet.contact.state.$t} ${pet.contact.zip.$t}</p>
+        } ${pet.contact.state.$t} ${pet.contact.zip.$t}</p>
             <ul class='list-group'>
             ${
-              pet.contact.phone.$t
-                ? `<li class='list-group-item'>Phone: ${
-                    pet.contact.phone.$t
-                  }</li>`
-                : ""
-            }
+        pet.contact.phone.$t
+          ? `<li class='list-group-item'>Phone: ${
+          pet.contact.phone.$t
+          }</li>`
+          : ""
+        }
                 ${
-                  pet.contact.email.$t
-                    ? `<li class='list-group-item'>Email: ${
-                        pet.contact.email.$t
-                      }`
-                    : ""
-                }
+        pet.contact.email.$t
+          ? `<li class='list-group-item'>Email: ${
+          pet.contact.email.$t
+          }`
+          : ""
+        }
 
                    <li class='list-group-item'>Shelter Id: ${
-                     pet.shelterId.$t
-                   }</li>
+        pet.shelterId.$t
+        }</li>
             </ul>
         </div>
 
         <div class='col-sm-6 text-center'>
           <img class="img-fluid rounded-circle mt-2" src="${
-            pet.media.photos.photo[3].$t
-          }">
+        pet.media.photos.photo[3].$t
+        }">
         </div>
       </div>
       `;
